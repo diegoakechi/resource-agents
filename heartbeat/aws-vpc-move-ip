@@ -139,8 +139,8 @@ END
 
 ec2ip_set_ip_param_compat(){
 	# Include backward compatibility for the deprecated ip parameter
-	if [ -n "$OCF_RESKEY_ip" ]; then
-		OCF_RESKEY_address=${OCF_RESKEY_ip}
+	if [ -z  "$OCF_RESKEY_address" ] && [ -n "$OCF_RESKEY_ip" ]; then
+  		OCF_RESKEY_address="$OCF_RESKEY_ip"
 	fi
 }
 
